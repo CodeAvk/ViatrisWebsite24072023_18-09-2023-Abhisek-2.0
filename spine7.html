@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Viatris</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+  <!-- ========================= CSS here ========================= -->
+  <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css" /> -->
+  <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+  <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule="" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <style>
+    body {
+      overflow: hidden;
+
+    }
+
+    .side-menu-li-active::after {
+      content: url("assets/images/icon-images/right-arrow.png");
+      /* URL of your arrow image */
+      /*position: relative;
+			left: 48%;
+			bottom: 8px;*/
+      float: right;
+    }
+
+    .info-container {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0);
+      cursor: pointer;
+      z-index: 1
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-list li {
+      margin: 0 10px;
+      /* Add space between items */
+    }
+
+
+    /* Media query for screens with a maximum width of 768px (mobile devices) */
+    @media (max-width: 768px) {
+      .info-container {
+        position: fixed;
+        top: 85vh;
+        left: 1vh;
+        /* width: 100%; */
+        /* right: 0; */
+        padding: 10px;
+        background-color: transparent;
+        /* Set background color to transparent */
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      #container {
+        height: 100vh;
+      }
+
+      .info-list {
+        display: flex;
+        /* Use flexbox to create a horizontal layout */
+        justify-content: space-between;
+        /* Distribute items evenly along the container */
+        padding: 0 15px;
+        /* Add padding to create equal space on both ends */
+      }
+
+      .info-list li {
+        /* Add margin for equal space between items */
+        margin: 0 7.5px;
+      }
+
+      .info-list li a {
+        width: 50px;
+        height: 50px;
+      }
+
+      /* Adjust the margin for the first and last li elements */
+      .info-list li:first-child {
+        margin-left: 0;
+      }
+
+      .info-list li:last-child {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-icon">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- /End Preloader -->
+
+  <!-- Start Header Area -->
+
+  <header class="header navbar-area">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <div class="nav-inner">
+            <!-- Start Navbar -->
+            <nav class="navbar navbar-expand-lg">
+              <div class="col-sm-4" style="display: flex; justify-content: space-between; align-items: center;">
+                <a class="navbar-brand" href="index.html">
+                  <img src="assets/images/logo/viatris-logo.png" alt="Logo">
+                </a>
+                <a href="index.html" style="margin-right: 20px;">
+                  <!-- Adjust the margin-right value as needed -->
+                  <img src="assets/images/icon-images/home-icon.png" alt="Home" class="home-icon">
+                </a>
+              </div>
+
+
+
+              <div class="col-sm-8 align-right pr-40">
+                <!--<a href="#"><img src="assets/images/icon-images/left-arrow.png" alt="Arrow Left" class="arrow-left"></a>
+              <img src="assets/images/icon-images/divider-line.png" alt="Dividing Line" class="dividing-lines">
+              <a href="#"><img src="assets/images/icon-images/right-arrow.png" alt="Arrow Right" class="arrow-right"></a>-->
+
+              </div>
+
+            </nav>
+            <!-- End Navbar -->
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </header>
+  <!-- End Header Area -->
+
+  <!-- Start Hero Area -->
+  <section class="hero-area">
+    <!--img class="hero-shape" src="assets/images/hero/hero-shape.svg" alt="#"-->
+
+    <div class="container-fluid container-img-muscular-system" style="height: auto; position: relative;">
+      <div class="center-content" id="center-container" style="min-height: 70vh">
+        <div id="content1">
+          <div id="container" style="position: relative;">
+            <!-- Move the <ul> list above the <model-viewer> -->
+
+
+            <iframe id="knee_iframe" style="display: block" src="https://playcanv.as/p/BrCaRsqu/" title="Knee"></iframe>
+            <!-- <iframe id="knee_iframe" style="display: block" src="https://playcanv.as/p/BJp9j755/" title="Knee"></iframe> -->
+            <div class="info-container">
+              <ul class="info-list">
+                <li class="pb-15 pr-10">
+                  <a href="page-explore-today.html"><img src="assets/images/features/home-blue-icon.png"
+                      class="hght50" /></a>
+                </li>
+                <li class="pb-15 pr-10">
+                  <a href="javascript:void(0);"
+                    onclick="openMinimizedWindow('https://www.myhealthmylife.com.my/Pain/understanding-joint-pain')"><img
+                      src="assets/images/features/my-health-icon.png" class="hght50" /></a>
+                </li>
+                <!-- <li class="pb-0 pr-10" id="side-menu-viatris-right"></li> -->
+                <li class="pb-15 pr-10" id="side-menu-viatris-right1">
+                  <a href="javascript:void(0);" class="image-icon"><img
+                      src="assets/images/features/neuropathic-icon.png" id="image-icon1" onclick="myFunction()"
+                      class="hght50" /></a>
+                </li>
+                <li class="pb-15 pr-10">
+                  <a href="page-explore-human-anatomy.html"><img src="assets/images/features/information-icon.png"
+                      class="hght50" /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- <div class="container-fluid"> -->
+
+    <!-- </div> -->
+    </div>
+  </section>
+  <!-- End Hero Area -->
+
+  <script>
+    function openMinimizedWindow(url) {
+      window.open(
+        url,
+        "_blank",
+        "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=800, height=600, top=50, left=50"
+      );
+    }
+    function myFunction() {
+      let bool = document.getElementById("flag").innerHTML;
+
+      if (bool === "false") {
+        const imageIcon = document.getElementById("image-icon1");
+        imageIcon.src = "assets/images/features/neuropathic-icon-menu.png";
+        const sideMenu = document.getElementById("side-menu-viatris-right");
+
+        // Update side menu content
+        sideMenu.innerHTML = `
+                <ul class="side-menu-viatris-right">
+                        <li class="side-menu-li-inactive-right">Pain</li>
+                        <li class="side-menu-li-inactive-right"><a href="javascript:void(0);" onclick="openMinimizedWindow('https://www.myhealthmylife.com.my/en-MY/Pain/Nerve-pain-center')"  class="side-menu-li-inactive-right-text">Neuropathic Pain</a></li>
+                        <li class="side-menu-li-inactive-right"><a href="page-Osteoarthritis.html" class="side-menu-li-inactive-right-text">OSTEOARTHRITIS</a></li>
+                    </ul>
+                `;
+
+        document.getElementById("flag").innerHTML = "true"; // Use string 'true'
+        console.log("inside true");
+      } else {
+        const imageIcon = document.getElementById("image-icon1");
+        imageIcon.src = "assets/images/features/neuropathic-icon.png";
+        const sideMenu = document.getElementById("side-menu-viatris-right");
+
+        // Update side menu content
+        sideMenu.innerHTML = ``;
+
+        document.getElementById("flag").innerHTML = "false"; // Use string 'false'
+        console.log("inside false");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuItems = document.querySelectorAll(".side-menu-li-inactive");
+      const centerContainer = document.getElementById("center-container");
+
+      // Hide all content divs except the first one
+      centerContainer
+        .querySelectorAll(".center-content > div:not(:first-child)")
+        .forEach((div) => {
+          div.style.display = "none";
+        });
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const contentId = item.getAttribute("data-content");
+          const contentToDisplay = document.getElementById(contentId);
+
+          // Hide all content divs and display the selected content
+          centerContainer
+            .querySelectorAll(".center-content > div")
+            .forEach((div) => {
+              div.style.display = "none";
+            });
+          contentToDisplay.style.display = "block";
+
+          // Remove 'side-menu-li-active' class from all menu items
+          menuItems.forEach((menuItem) => {
+            menuItem.classList.remove("side-menu-li-active");
+          });
+
+          // Add 'side-menu-li-active' class to the clicked menu item
+          item.classList.add("side-menu-li-active");
+        });
+      });
+    });
+  </script>
+
+  <!-- ========================= scroll-top ========================= -->
+  <!--a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a-->
+
+  <!-- ========================= JS here ========================= -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/tiny-slider.js"></script>
+  <script src="assets/js/glightbox.min.js"></script>
+  <script src="assets/js/count-up.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

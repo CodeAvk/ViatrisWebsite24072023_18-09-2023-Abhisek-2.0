@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Viatris</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            overflow: hidden;
+
+        }
+
+        .side-menu-li-active-mini::after {
+            content: url('assets/images/icon-images/right-arrow.png');
+            /* URL of your arrow image */
+            /* position: relative;
+    left: 65%;
+    bottom: 0;*/
+            float: right;
+            margin-left: 10px;
+        }
+
+        .info-container {
+            position: absolute;
+            top: 25%;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0);
+            cursor: pointer;
+            z-index: 1
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            margin: 0 10px;
+            /* Add space between items */
+        }
+
+
+        /* Media query for screens with a maximum width of 768px (mobile devices) */
+        @media (max-width: 768px) {
+            .info-container {
+                position: fixed;
+                top: 85vh;
+                left: 1vh;
+                /* width: 100%; */
+                /* right: 0; */
+                padding: 10px;
+                background-color: transparent;
+                /* Set background color to transparent */
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            #container {
+                height: 100vh;
+            }
+
+            .info-list {
+                display: flex;
+                /* Use flexbox to create a horizontal layout */
+                justify-content: space-between;
+                /* Distribute items evenly along the container */
+                padding: 0 15px;
+                /* Add padding to create equal space on both ends */
+            }
+
+            .info-list li {
+                /* Add margin for equal space between items */
+                margin: 0 7.5px;
+            }
+
+            .info-list li a {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Adjust the margin for the first and last li elements */
+            .info-list li:first-child {
+                margin-left: 0;
+            }
+
+            .info-list li:last-child {
+                margin-right: 0;
+            }
+        }
+
+
+        .maq ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 250px;
+            margin: 20px;
+        }
+
+        .maq ul li {
+            display: block;
+            height: 50px;
+            padding: 10px;
+            border-top: 0px solid rgba(255, 255, 255, .1);
+            transition: all .5s;
+            opacity: 0;
+        }
+
+        .maq ul li:hover {
+            background: #ccc;
+        }
+
+        .maq ul li:last-child {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .maq label:before {
+            height: 2px;
+            width: 20px;
+            background: #fff;
+            display: inline-block;
+            content: "";
+            box-shadow: 0px -5px 0px 0px #fff,
+                0px -10px 0px 0px #fff;
+            margin-right: 10px;
+            transition: all .5s;
+            position: relative;
+            opacity: 1;
+        }
+
+        .maq label {
+            display: block;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            background: #271753;
+            text-align: left;
+            border-bottom: 1px dotted #ddd;
+            border-radius: 10px 10px 0px 0px
+        }
+
+        .maq input[type="checkbox"] {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .maq #collapse:checked~li {
+            margin-top: 0;
+            opacity: 10;
+            background: #271753;
+            background-image: url(../images/features/side-menu.png);
+        }
+
+        maq #collapse:checked~li:last-child {
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .maq #collapse:checked+label:before {
+            position: relative;
+            right: calc(0px);
+            opacity: 10;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+
+    <header class="header navbar-area">
+        <div class="container-fluid">
+            <div class="row align-items-top">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="col-sm-4">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="assets/images/logo/viatris-logo.png" alt="Logo">
+                                </a>
+                            </div>
+
+                            <div class="col-sm-8 align-right pr-40">
+                                <!--<a href="#"><img src="assets/images/icon-images/left-arrow.png" alt="Arrow Left" class="arrow-left"></a>
+									<img src="assets/images/icon-images/divider-line.png" alt="Dividing Line" class="dividing-lines">
+									<a href="#"><img src="assets/images/icon-images/right-arrow.png" alt="Arrow Right" class="arrow-right"></a>-->
+                                <a href="page-explore-today.html"><img src="assets/images/icon-images/home-icon.png"
+                                        alt="Home" class="home-icon" style=""></a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Hero Area -->
+    <section class="hero-area">
+        <!--img class="hero-shape" src="assets/images/hero/hero-shape.svg" alt="#"-->
+        <div class="container-fluid container-img-muscular-system">
+            <div class="container-fluid">
+
+                <div class="row align-items-top pt-80">
+
+                    <div class="col-lg-3 col-md-3 col-sm-12 align-left mt-10">
+
+                        <div class="maq" style="display:none;"> <!--style="position: absolute;z-index: 999;left:0;"-->
+
+                            <ul class="">
+                                <input type="checkbox" id="collapse" />
+                                <label for="collapse">OPTIONS</label>
+
+                                <li class="side-menu-li-inactive-mini side-menu-li-active-mini mb-0"
+                                    data-content="content1">MOA</li>
+                                <li class="side-menu-li-inactive-mini mb-0" data-content="content2"><a
+                                        href="http://viatrismyapi-celebrex.com/" target="_blank"
+                                        style="color: #fff;">API</a></li>
+                                <li class="side-menu-li-inactive-mini mb-0" data-content="content3"
+                                    onclick="window.location.href='page-product-celebrex-resources.html';"> Resources
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="side-menu-viatris-mini">
+                            <ul class="menu-display-flex-mobile">
+                                <li class="side-menu-li-inactive-mini side-menu-li-active-mini" data-content="content1">
+                                    MOA
+                                </li>
+                                <li class="side-menu-li-inactive-mini" data-content="content2">
+                                    <a href="http://viatrismyapi-celebrex.com/" target="_blank"
+                                        style="color: #fff;">API</a>
+                                </li>
+
+
+                                <li class="side-menu-li-inactive-mini" data-content="content3"
+                                    onclick="window.location.href='page-product-celebrex-resources.html';">
+                                    Resources
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-8 col-sm-12 align-center mt-10">
+                        <div class="center-content" id="center-container" style="min-height:70vh;">
+                            <div id="content1">
+                                <video width="100%" controls style="width: 100%; height: 100%;">
+                                    <source src="assets/images/features/CELE 0685 Celebrex MOA Video.mp4"
+                                        type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div id="content2">
+                                <div class="modal" tabindex="-1" role="dialog" style="position:relative;display:block;">
+                                    <div class="modal-dialog mt-0" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Application Programming Interface</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"
+                                                    style="border: 0px; border-radius: 50px; padding: 0px; height: 25px; width: 25px; background: #9f9c9c;">
+                                                    <span aria-hidden="true"
+                                                        style="color:#fff;font-weight:bold;">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" style="height: 400px;overflow: auto;">
+                                                <p class="align-left ptxt">An Application Programming Interface (API) is
+                                                    a set of rules and protocols that allows different software
+                                                    applications to communicate and interact with each other. It defines
+                                                    the methods and data formats that applications can use to request
+                                                    and exchange information, services, or functionality.
+
+                                                    APIs are used to enable the integration of different systems,
+                                                    allowing them to work together seamlessly. They serve as an
+                                                    intermediary layer that abstracts the underlying complexities of a
+                                                    system, making it easier for developers to interact with it.
+                                                    Here are some key points about APIs:
+
+                                                    Functionality Access: APIs provide a way for developers to access
+                                                    specific functionalities or data from a service, application, or
+                                                    platform without needing to understand its internal implementation.
+
+                                                    Standardization: APIs are standardized, which means they follow
+                                                    specific protocols and data formats to ensure compatibility and
+                                                    interoperability across different systems.
+
+                                                    Request-Response Model: APIs usually operate on a request-response
+                                                    model. A client application (e.g., a web browser or mobile app)
+                                                    sends a request to the API, and the API processes that request and
+                                                    returns a response.
+                                                    <br /><br />
+                                                    <strong>Types of APIs: APIs can be categorized into different types,
+                                                        including:</strong><br /><br />
+                                                    Request-Response Model: APIs usually operate on a request-response
+                                                    model. A client application (e.g., a web browser or mobile app)
+                                                    sends a request to the API, and the API processes that request and
+                                                    returns a response.
+
+
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 align-right  mt-14">
+                        <div class="info-container">
+                            <ul class="info-list">
+                                <li class="pb-15 pr-10">
+                                    <a href="page-product-update.html"><img
+                                            src="assets/images/features/home-blue-icon.png" class="hght50" /></a>
+                                </li>
+                                <li class="pb-15 pr-10">
+                                    <a href="javascript:void(0);"
+                                        onclick="openMinimizedWindow('https://www.myhealthmylife.com.my')"><img
+                                            src="assets/images/features/my-health-icon.png" class="hght50" /></a>
+                                </li>
+                                <!-- <li class="pb-0 pr-10" id="side-menu-viatris-right"></li> -->
+                                <li class="pb-15 pr-10" id="side-menu-viatris-right1">
+                                    <a href="javascript:void(0);" class="image-icon"><img
+                                            src="assets/images/features/neuropathic-icon.png" id="image-icon1"
+                                            onclick="myFunction()" class="hght50" /></a>
+                                </li>
+                                <li class="pb-15 pr-10">
+                                    <a href="http://www.painscreeningtool.com/"><img
+                                            src="assets/images/features/information-icon.png" class="hght50" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p id="flag" style="display:none;">false</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- End Hero Area -->
+    <script>
+        function openMinimizedWindow(url) {
+            window.open(url, '_blank', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=800, height=600, top=50, left=50');
+        }
+        function myFunction() {
+            let bool = document.getElementById('flag').innerHTML;
+
+            if (bool === 'false') {
+                const imageIcon = document.getElementById('image-icon1');
+                imageIcon.src = 'assets/images/features/neuropathic-icon-menu.png';
+                const sideMenu = document.getElementById('side-menu-viatris-right');
+
+                // Update side menu content
+                sideMenu.innerHTML = `
+                <ul class="side-menu-viatris-right">
+                    <li class="side-menu-li-inactive-right"><a href="page-Pain.html" class="side-menu-li-inactive-right-text">Pain</a></li>
+                     <li class="side-menu-li-inactive-right"><a href="page-Neuropathic.html" class="side-menu-li-inactive-right-text">Neuropathic</a></li>
+                        <li class="side-menu-li-inactive-right"><a href="page-Osteoarthritis.html" class="side-menu-li-inactive-right-text">OSTEOARTHRITIS</a></li>
+                    </ul>
+                `;
+
+                document.getElementById('flag').innerHTML = 'true'; // Use string 'true'
+                console.log('inside true');
+            } else {
+                const imageIcon = document.getElementById('image-icon1');
+                imageIcon.src = 'assets/images/features/neuropathic-icon.png';
+                const sideMenu = document.getElementById('side-menu-viatris-right');
+
+                // Update side menu content
+                sideMenu.innerHTML = ``;
+
+                document.getElementById('flag').innerHTML = 'false'; // Use string 'false'
+                console.log('inside false');
+            }
+
+
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll('.side-menu-li-inactive');
+            const centerContainer = document.getElementById('center-container');
+
+            // Hide all content divs except the first one
+            centerContainer.querySelectorAll('.center-content > div:not(:first-child)').forEach(div => {
+                div.style.display = 'none';
+            });
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const contentId = item.getAttribute('data-content');
+                    const contentToDisplay = document.getElementById(contentId);
+
+                    // Hide all content divs and display the selected content
+                    centerContainer.querySelectorAll('.center-content > div').forEach(div => {
+                        div.style.display = 'none';
+                    });
+                    contentToDisplay.style.display = 'block';
+
+                    // Remove 'side-menu-li-active' class from all menu items
+                    menuItems.forEach(menuItem => {
+                        menuItem.classList.remove('side-menu-li-active');
+                    });
+
+                    // Add 'side-menu-li-active' class to the clicked menu item
+                    item.classList.add('side-menu-li-active');
+                });
+            });
+        });
+    </script>
+
+
+    <!-- ========================= scroll-top ========================= -->
+    <!--a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a-->
+
+    <!-- ========================= JS here ========================= -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

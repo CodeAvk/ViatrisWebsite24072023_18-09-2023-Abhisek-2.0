@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Viatris</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg" />
+
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="assets/css/glightbox.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule="" src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+
+        .container-fluid.container-img-muscular-system {
+            overflow: hidden;
+        }
+
+        .center-content {
+            overflow: hidden;
+        }
+
+
+        .info-container {
+            text-align: right;
+            /* Align the content to the right side */
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+            /* Display the list items inline to avoid full width */
+        }
+
+        .info-list li {
+            margin: 0 10px;
+            /* Add space between items */
+        }
+
+        .system-label {
+            font-size: 20px;
+        }
+
+        .menu-list li {
+            font-size: 20px;
+        }
+
+
+        /* Media query for screens with a maximum width of 768px (mobile devices) */
+
+
+        .side-menu-li-active::after {
+            content: url("assets/images/icon-images/right-arrow.png");
+            /* URL of your arrow image */
+            /*  position: relative;
+			left: 48%;
+			bottom: 8px;*/
+        }
+
+        .maq ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 250px;
+            margin: 20px;
+        }
+
+        .maq ul li {
+            display: block;
+            height: 50px;
+            padding: 10px;
+            border-top: 0px solid rgba(255, 255, 255, .1);
+            transition: all .5s;
+            opacity: 0;
+        }
+
+        .maq ul li:hover {
+            background: #ccc;
+        }
+
+        .maq ul li:last-child {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .maq label:before {
+            height: 2px;
+            width: 20px;
+            background: #fff;
+            display: inline-block;
+            content: "";
+            box-shadow: 0px -5px 0px 0px #fff,
+                0px -10px 0px 0px #fff;
+            margin-right: 10px;
+            transition: all .5s;
+            position: relative;
+            opacity: 1;
+        }
+
+        .maq label {
+            display: block;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            background: #271753;
+            text-align: left;
+            border-bottom: 1px dotted #ddd;
+            border-radius: 10px 10px 0px 0px
+        }
+
+        .maq input[type="checkbox"] {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .maq #collapse:checked~li {
+            margin-top: 0;
+            opacity: 10;
+            background: #271753;
+
+        }
+
+        maq #collapse:checked~li:last-child {
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .maq #collapse:checked+label:before {
+            position: relative;
+            right: calc(0px);
+            opacity: 10;
+
+        }
+
+        @media (max-width: 768px) {
+            .side-menu-li-inactive {
+                width: 180px;
+                /* Width for mobile devices */
+            }
+
+            label[for="collapse"] {
+                width: 100px;
+                /* Width for mobile devices */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .side-menu-li-inactive {
+                width: 180px;
+                /* Width for mobile devices */
+            }
+
+            .system-label {
+                width: 100px;
+                /* Width for mobile devices */
+                font-size: 15px;
+                /* Font size for mobile devices */
+            }
+
+            .menu-list li {
+                font-size: 15px;
+            }
+        }
+
+        .info-container {
+            position: absolute;
+            top: 25%;
+            /* right: 0; */
+            left: 0;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0);
+            cursor: pointer;
+            z-index: 1
+        }
+
+        @media (max-width: 768px) {
+            .info-container {
+                position: fixed;
+                top: 85vh;
+                left: 0vh;
+                /* width: 100%; */
+                /* right: 0; */
+                padding: 10px;
+                background-color: rgba(240, 15, 15, 0);
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            .info-list {
+                display: flex;
+                /* Use flexbox to create a horizontal layout */
+                justify-content: space-between;
+                /* Distribute items evenly along the container */
+                padding: 0 15px;
+                /* Add padding to create equal space on both ends */
+            }
+
+            .info-list li {
+                /* Add margin for equal space between items */
+                margin: 0 7.5px;
+            }
+
+            .info-list li a {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Adjust the margin for the first and last li elements */
+            .info-list li:first-child {
+                margin-left: 0;
+            }
+
+            .info-list li:last-child {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+
+    <!-- Start Header Area -->
+
+    <header class="header navbar-area">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="col-sm-4">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="assets/images/logo/viatris-logo.png" alt="Logo" />
+                                </a>
+                            </div>
+
+                            <div class="col-sm-8 align-right pr-40">
+                                <!--<a href="#"><img src="assets/images/icon-images/left-arrow.png" alt="Arrow Left" class="arrow-left"></a>
+									<img src="assets/images/icon-images/divider-line.png" alt="Dividing Line" class="dividing-lines">
+									<a href="#"><img src="assets/images/icon-images/right-arrow.png" alt="Arrow Right" class="arrow-right"></a>-->
+                                <a href="page-explore-today.html"><img src="assets/images/icon-images/home-icon.png"
+                                        alt="Home" class="home-icon" style="" /></a>
+                            </div>
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+        </div>
+        <!-- container -->
+    </header>
+    <!-- End Header Area -->
+
+    <!-- Start Hero Area -->
+    <section class="hero-area no-scroll">
+        <!--img class="hero-shape" src="assets/images/hero/hero-shape.svg" alt="#"-->
+        <div class="container-fluid container-img-muscular-system" style="height:auto;"><!--height:auto;-->
+            <div class="container-fluid">
+                <div class="row align-items-top pt-0">
+
+                    <div class="col-md-10 align-center mt-0">
+                        <div class="maq" style="position: absolute;z-index: 999;left:0;">
+
+                            <ul class="menu-list">
+                                <input type="checkbox" id="collapse" />
+                                <label for="collapse" class="system-label"">SYSTEM</label>
+
+
+                                <li class=" side-menu-li-inactive side-menu-li-active mb-0" data-content="content1">
+                                    Muscular system</li>
+                                    <li class="side-menu-li-inactive mb-0" data-content="content2">Nervous System</li>
+                                    <li class="side-menu-li-inactive mb-0" data-content="content3">Skeleton System</li>
+
+                            </ul>
+
+                        </div>
+                        <div class="side-menu-viatris" style="display:none;">
+                            <ul class="menu-display-flex-mobile">
+                                <li class="side-menu-li-inactive side-menu-li-active" data-content="content1">
+                                    Muscular system
+                                </li>
+                                <li class="side-menu-li-inactive" data-content="content2">
+                                    Nervous System
+                                </li>
+                                <li class="side-menu-li-inactive" data-content="content3">
+                                    Skeleton System
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="center-content" id="center-container" style="min-height: 100vh; width: 100vw;">
+                            <div id="content0">
+                                <div id="container">
+                                    <model-viewer src="assets/models/FullBody_GLB/Full_Body_GLB.glb" ios-src=" "
+                                        auto-rotate camera-controls ar-modes="scene-viewer webxr"
+                                        alt="A 3D model of an architecture" shadow-intensity="0"
+                                        interaction-prompt="auto" ar-scale="auto" disable-pan xr-environment
+                                        quick-look-browsers="safari chrome" ar-status="not-presenting" style="width: 100%;
+                      height: 100vh;">
+                                    </model-viewer>
+                                </div>
+                            </div>
+                            <div id="content1">
+                                <div id="container">
+                                    <model-viewer src="assets/models/FullBody_GLB/Body_Muscular.glb" ios-src=" "
+                                        auto-rotate camera-controls ar-modes="scene-viewer webxr"
+                                        alt="A 3D model of an architecture" shadow-intensity="0"
+                                        interaction-prompt="auto" ar-scale="auto" disable-pan xr-environment
+                                        quick-look-browsers="safari chrome" ar-status="not-presenting" style="width: 100%;
+                      height: 100vh;">
+                                    </model-viewer>
+                                </div>
+                            </div>
+                            <div id="content2">
+                                <div id="container">
+                                    <model-viewer src="assets/models/FullBody_GLB/Body_Nervous.glb" ios-src=" "
+                                        auto-rotate camera-controls ar-modes="scene-viewer webxr"
+                                        alt="A 3D model of an architecture" shadow-intensity="0"
+                                        interaction-prompt="auto" ar-scale="auto" disable-pan xr-environment
+                                        quick-look-browsers="safari chrome" ar-status="not-presenting" style="width: 100%;
+                      height: 100vh;">
+                                    </model-viewer>
+                                </div>
+                            </div>
+                            <div id="content3">
+                                <div id="container">
+                                    <model-viewer src="assets/models/FullBody_GLB/Body_Skeleton.glb" ios-src=" "
+                                        auto-rotate camera-controls ar-modes="scene-viewer webxr"
+                                        alt="A 3D model of an architecture" shadow-intensity="0"
+                                        interaction-prompt="auto" ar-scale="auto" disable-pan xr-environment
+                                        quick-look-browsers="safari chrome" ar-status="not-presenting" style="width: 100%;
+                      height: 100vh;">
+                                    </model-viewer>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-container">
+                        <ul class="info-list">
+                            <li class="pb-15 pr-10">
+                                <a href="page-explore-human-anatomy.html"><img
+                                        src="assets/images/features/home-blue-icon.png" class="hght50" /></a>
+                            </li>
+                            <li class="pb-15 pr-10">
+                                <a href="javascript:void(0);"
+                                    onclick="openMinimizedWindow('https://www.myhealthmylife.com.my')"><img
+                                        src="assets/images/features/my-health-icon.png" class="hght50" /></a>
+                            </li>
+                            <!-- <li class="pb-0 pr-10" id="side-menu-viatris-right"></li> -->
+                            <li class="pb-15 pr-10" id="side-menu-viatris-right1">
+                                <a href="javascript:void(0);" class="image-icon"><img
+                                        src="assets/images/features/neuropathic-icon.png" id="image-icon1"
+                                        onclick="myFunction()" class="hght50" /></a>
+                            </li>
+                            <li class="pb-15 pr-10">
+                                <a href="http://www.painscreeningtool.com/"><img
+                                        src="assets/images/features/information-icon.png" class="hght50" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Area -->
+    <script>
+
+
+        function openMinimizedWindow(url) {
+            window.open(
+                url,
+                "_blank",
+                "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=800, height=600, top=50, left=50"
+            );
+        }
+        function myFunction() {
+            let bool = document.getElementById("flag").innerHTML;
+
+            if (bool === "false") {
+                const imageIcon = document.getElementById("image-icon1");
+                imageIcon.src = "assets/images/features/neuropathic-icon-menu.png";
+                const sideMenu = document.getElementById("side-menu-viatris-right");
+
+                // Update side menu content
+                sideMenu.innerHTML = `
+                <ul class="side-menu-viatris-right">
+                       <li class="side-menu-li-inactive-right">Pain</li>
+                        <li class="side-menu-li-inactive-right"><a href="javascript:void(0);" onclick="openMinimizedWindow('https://www.myhealthmylife.com.my/en-MY/Pain/Nerve-pain-center')"  class="side-menu-li-inactive-right-text">Neuropathic Pain</a></li>
+                        <li class="side-menu-li-inactive-right"><a href="page-Osteoarthritis.html" class="side-menu-li-inactive-right-text">OSTEOARTHRITIS</a></li>
+                    </ul>
+                `;
+
+                document.getElementById("flag").innerHTML = "true"; // Use string 'true'
+                console.log("inside true");
+            } else {
+                const imageIcon = document.getElementById("image-icon1");
+                imageIcon.src = "assets/images/features/neuropathic-icon.png";
+                const sideMenu = document.getElementById("side-menu-viatris-right");
+
+                // Update side menu content
+                sideMenu.innerHTML = ``;
+
+                document.getElementById("flag").innerHTML = "false"; // Use string 'false'
+                console.log("inside false");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll(".side-menu-li-inactive");
+            const centerContainer = document.getElementById("center-container");
+
+
+            // Hide all content divs except the first one
+            centerContainer
+                .querySelectorAll(".center-content > div:not(:first-child)")
+                .forEach((div) => {
+                    div.style.display = "none";
+                });
+
+            menuItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    const contentId = item.getAttribute("data-content");
+                    const contentToDisplay = document.getElementById(contentId);
+
+                    // Hide all content divs and display the selected content
+                    centerContainer
+                        .querySelectorAll(".center-content > div")
+                        .forEach((div) => {
+                            div.style.display = "none";
+                        });
+                    contentToDisplay.style.display = "block";
+
+                    // Remove 'side-menu-li-active' class from all menu items
+                    menuItems.forEach((menuItem) => {
+                        menuItem.classList.remove("side-menu-li-active");
+                    });
+
+                    // Add 'side-menu-li-active' class to the clicked menu item
+                    item.classList.add("side-menu-li-active");
+                });
+            });
+        });
+    </script>
+
+    <!-- ========================= scroll-top ========================= -->
+    <!--a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a-->
+
+    <!-- ========================= JS here ========================= -->
+    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/tiny-slider.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/count-up.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
